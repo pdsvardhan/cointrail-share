@@ -1,0 +1,14 @@
+# Standalone Cointrail. For the full stack use the docker-compose.yml one level up.
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "8501:3000"
+    environment:
+      INGEST_URL: ${INGEST_URL:-http://host.docker.internal:8600}
+      INGEST_API_KEY: ${INGEST_API_KEY:?set INGEST_API_KEY}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./data:/data

@@ -1,0 +1,32 @@
+=== PAGE 1 ===
+Tata Neu Infinity Hdfc Bank Credit Card Statement
+HDFC Bank Credit Cards GSTIN : 00AAAAA0000A0Z0 HSN Code : 997113 HSN Code : 997113
+0 Name : TEST CARDHOLDER Statement for HDFC Bank Credit Card
+0000000000000000000
+Email : TEST@EXAMPLE.COM Card No: 6529 26XX XXXX 1111
+0 Address : Flat 1, Test Street Statement Date:01/09/2025 AAN : 0000000000000000000
+TESTCITY-500000 TEL
+Payment Due Date Total Dues Minimum Amount Due
+GST No :
+In case you wish to update the personal details,please write a letter to 21/09/2025 9,053.00 460.00
+The Manager, HDFC Bank Cards Division, Test Address
+Credit Limit Available Credit Limit Available Cash Limit
+1,00,000 90,947 40,000
+Account Summary
+Opening Payment/ Purchase/ Finance
+Total Dues
+Balance Credits Debits Charges
+8,629.77 8,630.00 9,053.43 0.00 9,053.00
+Domestic Transactions
+Base
+Date Transaction Description Amount (in Rs.)
+NeuCoins*
+TEST C
+08/08/2025 21:10:31 UPI-PIZZA STUDIO 588.00
+10/08/2025 16:51:04 UPI-TEST PAYEE ONE 340.00
+10/08/2025 11:57:30 INNOVATIVERETAILCONCEPTBangalore 6,201.68
+14/08/2025 13:36:08 UPI-Zomato private Limited 923.75
+22/08/2025 07:36:54 TELE TRANSFER CREDIT (Ref# ST000000000000000000002) 8,630.00Cr
+28/08/2025 09:39:18 UPI-TEST PAYEE TWO 1,000.00
+* Note: The 'Base NeuCoins' are calculated as 1.5% of spends against the eligible transactions.
+Page 1 of 2

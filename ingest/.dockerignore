@@ -1,0 +1,61 @@
+# iter-18 CH3: the image is built with `COPY . .` from the server checkout, which also holds the
+# live data directory (1.1 GB: the SQLite DB, statement PDFs, Gmail OAuth tokens, SMS XML
+# backups) and .env (API key, statement PDF passwords). Before this file all of it was baked into
+# the image layers. The image needs only the Python package below; data and secrets arrive at run
+# time through the /data volume and env_file.
+
+# Secrets and owner data
+.env
+.env.*
+*.env
+data/
+*.db
+*.db-*
+*.db.*
+*.sqlite*
+statements/
+statements_inbox/
+gmail_tokens/
+credentials.json
+token.json
+*.token.json
+*.key
+*.pem
+*.pdf
+*.xml
+*.xml.gz
+NOTES.md
+
+# Repository and tooling
+.git
+.gitea
+.gitignore
+.gitleaks.toml
+.dockerignore
+.claude
+.vscode
+.idea
+ottomate/
+reports/
+docs/
+decisions/
+public_docs/
+ops/
+tests/
+scripts/
+# the one-off iter-18 post-deploy runner must ship (docker exec ingest python3 scripts/iter18_post_deploy.py)
+!scripts/iter18_post_deploy.py
+# ... and the iteration-203 runner with its step modules
+!scripts/iter203_post_deploy.py
+!scripts/iter203_*_steps.py
+requirements-dev.txt
+pytest.ini
+*.md
+
+# Build and runtime litter
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+*.log

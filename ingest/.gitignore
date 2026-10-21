@@ -1,0 +1,13 @@
+data/
+*.db
+__pycache__/
+*.pyc
+
+# Security
+.env
+.env.*
+.env.local
+*.key
+*.pem
+credentials.json
+token.json

@@ -1,0 +1,30 @@
+# Runs the whole stack: Ingest (FastAPI, :8600) + Cointrail (Next.js, :8501).
+#   cp .env.example .env   # then set INGEST_API_KEY
+#   mkdir -p data/ingest data/cointrail && cp ingest/data.example/cards.example.json data/ingest/cards.json
+#   docker compose up -d --build
+#   docker compose exec ingest python scripts/seed_demo.py     # optional: synthetic demo data
+# Open http://localhost:8501
+services:
+  ingest:
+    build: ./ingest
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8600:8600"   # needed only for the Android app / SMS forwarding; remove otherwise
+    env_file: .env
+    environment:
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-http://localhost:8501}
+    volumes:
+      - ./data/ingest:/data
+
+  cointrail:
+    build: ./cointrail
+    restart: unless-stopped
+    ports:
+      - "8501:3000"
+    environment:
+      INGEST_URL: http://ingest:8600
+      INGEST_API_KEY: ${INGEST_API_KEY:?set INGEST_API_KEY in .env}
+    volumes:
+      - ./data/cointrail:/data
+    depends_on:
+      - ingest

@@ -1,0 +1,49 @@
+flowchart TD
+    User["User<br/>(no login UI in COINTRAIL)"]
+    Browser["Web browser"]
+    Android["Android APK<br/>(WebView + native receiver)"]
+    Obtainium["Obtainium"]
+
+    CFTunnel{"Cloudflare Tunnel<br/>(public ingress)"}
+    HomeNet["Home LAN<br/>(192.168.1.0/24)<br/>direct access"]
+
+    COINTRAIL["COINTRAIL Next.js<br/>:8501<br/>auth_strategy: none<br/>(network-bound, anonymous-ok)"]
+    Ingest["Ingest service<br/>:8600<br/>X-API-Key gate"]
+    Builds["builds-server<br/>(no auth, public static)"]
+    Gitea["Gitea<br/>(SSH key auth for push)"]
+
+    COINTRAILEnv[/"COINTRAIL .env<br/>INGEST_API_KEY"/]
+    AndroidKey[/"native code<br/>X-API-Key constant"/]
+    GiteaSecrets[/"Gitea Actions<br/>ANDROID_KEYSTORE_PASSWORD<br/>ANDROID_KEY_PASSWORD"/]
+
+    User --> Browser
+    User --> Android
+    Browser -- HTTPS --> CFTunnel
+    Browser -. LAN .-> HomeNet
+    Android -- HTTPS --> CFTunnel
+    HomeNet --> COINTRAIL
+    CFTunnel -- public route --> COINTRAIL
+    CFTunnel -- public route --> Ingest
+    CFTunnel -- public route --> Builds
+
+    COINTRAIL -- read --> COINTRAILEnv
+    COINTRAIL -- "X-API-Key (server-side)" --> Ingest
+    Android -- "POST /sms with X-API-Key" --> Ingest
+    Android -- read --> AndroidKey
+
+    Obtainium -- HTTPS GET (no auth) --> Builds
+    Obtainium -- prompts install --> Android
+
+    Gitea -- triggers --> Gitea
+    Gitea -- read --> GiteaSecrets
+    Gitea -- pushes APK --> Builds
+
+    %% Style notes
+    classDef gateAccept fill:#10b981,stroke:#059669,color:#fff
+    classDef gateOpen fill:#94a3b8,stroke:#64748b,color:#fff
+    classDef secret fill:#fef3c7,stroke:#f59e0b,color:#92400e
+    classDef risk fill:#fee2e2,stroke:#dc2626,color:#991b1b
+
+    class CFTunnel gateAccept
+    class HomeNet gateOpen
+    class COINTRAILEnv,AndroidKey,GiteaSecrets secret

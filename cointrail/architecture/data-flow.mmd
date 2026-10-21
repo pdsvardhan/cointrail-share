@@ -1,0 +1,78 @@
+flowchart LR
+    subgraph Sources["Data sources"]
+      direction TB
+      SMS["Bank SMS<br/>(SBI / HDFC / ICICI / HSBC / Axis)"]
+      EmailCC["Gmail<br/>CC statement emails"]
+      EmailFood["Gmail<br/>food order emails<br/>(Swiggy / Zomato / Amazon)"]
+      PDFCC["CC PDFs<br/>(downloaded by Ingest cron)"]
+      Manual["User manual entry<br/>(COINTRAIL UI)"]
+    end
+
+    subgraph IngestPipeline["Ingest hourly cron pipeline"]
+      direction TB
+      ParseSMS["SMS parser<br/>36+ regex patterns"]
+      ParsePDF["PDF parser<br/>per-bank decrypt + extract"]
+      ParseEmail["Email parser<br/>MIME + Swiggy item parser + Amazon HTML"]
+      Categorize["Categorizer<br/>two-pass<br/>(Vihanga / Family / Self Transfer / etc.)"]
+      CrossMatch["Cross-matcher v2<br/>merchant plausibility<br/>~0 false dupes"]
+      Relink["Enrichment relink<br/>asymmetric date window<br/>(Amazon 14d / Swiggy 2d)"]
+      Recurring["Recurring detector<br/>monthly / yearly / biennial"]
+    end
+
+    subgraph IngestDB["Ingest SQLite (port 8600)"]
+      direction TB
+      TxnTable[("transactions<br/>(canonical txn store)")]
+      CardsTable[("cards / statements")]
+      EnrichTable[("merchant + item<br/>enrichments")]
+      RecurringTable[("recurring patterns")]
+    end
+
+    subgraph COINTRAILProxy["COINTRAIL API routes (port 8501)"]
+      direction TB
+      RouteCards["/api/cards*"]
+      RouteExpenses["/api/expenses*"]
+      RouteRecurring["/api/recurring*"]
+      RouteFood["/api/food*"]
+      RouteClassify["/api/classify"]
+    end
+
+    subgraph COINTRAILUI["COINTRAIL UI"]
+      direction TB
+      Dashboard["Expense Dashboard<br/>(/expenses 4-tab)"]
+      Cards["Cards Portfolio<br/>(/cards)"]
+      RecurringUI["Recurring<br/>(/expenses/recurring)"]
+      ClassifyUI["UPI Classifier<br/>(/expenses/classify)"]
+    end
+
+    LocalSQLite[("COINTRAIL local SQLite<br/>data/finance.db<br/>manual / settings / seed cats")]
+
+    SMS --> ParseSMS
+    EmailCC --> ParseEmail
+    EmailFood --> ParseEmail
+    PDFCC --> ParsePDF
+    ParseSMS --> Categorize
+    ParsePDF --> Categorize
+    ParseEmail --> Categorize
+    Categorize --> CrossMatch
+    CrossMatch --> TxnTable
+    ParseEmail -->|enrichments| EnrichTable
+    Relink -->|date-proximity match| EnrichTable
+    EnrichTable --> TxnTable
+    TxnTable --> Recurring
+    Recurring --> RecurringTable
+
+    Manual -->|POST /api/expenses| RouteExpenses
+    RouteExpenses --> LocalSQLite
+
+    TxnTable -->|GET| RouteCards
+    TxnTable -->|GET| RouteExpenses
+    TxnTable -->|GET| RouteFood
+    RecurringTable -->|GET| RouteRecurring
+
+    RouteCards --> Cards
+    RouteExpenses --> Dashboard
+    RouteRecurring --> RecurringUI
+    RouteFood --> Dashboard
+    LocalSQLite -->|merge w/ Ingest| Dashboard
+    ClassifyUI -->|POST /api/classify| RouteClassify
+    RouteClassify --> EnrichTable

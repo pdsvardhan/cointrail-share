@@ -1,0 +1,39 @@
+node_modules/
+.next/
+data/
+*.db
+config/
+data/
+__pycache__/
+*.pyc
+
+# Security
+.env
+.env.*
+.env.local
+*.key
+*.pem
+credentials.json
+token.json
+
+# Capacitor / Android
+android/.gradle/
+android/.idea/
+android/app/build/
+android/app/release/
+android/app/keystore/
+android/build/
+android/captures/
+android/local.properties
+android/app/src/main/assets/capacitor.config.json
+android/app/src/main/assets/capacitor.plugins.json
+android/app/src/main/assets/public/
+android/capacitor-cordova-android-plugins/
+.gradle-cache
+test-results/
+playwright-report/
+.lostpixel/
+.lighthouseci/
+
+# Build artifacts
+*.tsbuildinfo

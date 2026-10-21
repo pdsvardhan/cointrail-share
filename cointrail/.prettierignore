@@ -1,0 +1,9 @@
+.next
+node_modules
+data
+.env
+# app (reformatting would fight the generator) and three of them are not strict YAML,
+# which makes `prettier --check .` error out.
+staging
+# Native Android project (Gradle/Capacitor-owned files).
+android

@@ -1,0 +1,17 @@
+# iter-18 CH2 (2026-10-20): pins moved to releases that close every pip-audit advisory against the
+# previous set (starlette 0.41.3 x7, python-multipart 0.0.19 x6, pdfminer.six 20231228 x2).
+# starlette is pinned explicitly because fastapi only sets a floor. APScheduler stays on 3.x
+# (main.py uses the 3.x BackgroundScheduler API); pikepdf stays on 9.x (no advisory, no reason
+# to take a major). Re-check with: pip-audit -r requirements.txt
+fastapi==0.149.0
+starlette==1.9.0
+uvicorn==0.54.0
+pydantic==2.14.1
+google-api-python-client==2.201.0
+google-auth-httplib2==0.4.4
+google-auth-oauthlib==1.5.0
+pikepdf==9.11.0
+pdfplumber==0.11.10
+pdfminer.six==20260107
+python-multipart==0.0.32
+apscheduler==3.11.3

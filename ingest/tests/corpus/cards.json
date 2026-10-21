@@ -1,0 +1,100 @@
+{
+  "cards": [
+    {
+      "bank": "Axis",
+      "last4": "5585",
+      "card_name": "Axis Card",
+      "active": 0
+    },
+    {
+      "bank": "HDFC",
+      "last4": "3515",
+      "card_name": "HDFC Card",
+      "active": 0
+    },
+    {
+      "bank": "HSBC",
+      "last4": "6296",
+      "card_name": "HSBC Card",
+      "active": 0
+    },
+    {
+      "bank": "HDFC",
+      "last4": "5648",
+      "card_name": "Swiggy",
+      "active": 1
+    },
+    {
+      "bank": "SBI",
+      "last4": "1472",
+      "card_name": "AURUM (Old)",
+      "active": 0
+    },
+    {
+      "bank": "SBI",
+      "last4": "6917",
+      "card_name": "Cashback",
+      "active": 1
+    },
+    {
+      "bank": "HDFC",
+      "last4": "8339",
+      "card_name": "Tata Neu",
+      "active": 1
+    },
+    {
+      "bank": "HDFC",
+      "last4": "2183",
+      "card_name": "Millennia",
+      "active": 1
+    },
+    {
+      "bank": "SBI",
+      "last4": "7628",
+      "card_name": "AURUM",
+      "active": 1
+    },
+    {
+      "bank": "ICICI",
+      "last4": "4163",
+      "card_name": "Amazon Pay",
+      "active": 1
+    },
+    {
+      "bank": "ICICI",
+      "last4": "4874",
+      "card_name": "Sapphiro",
+      "active": 1
+    },
+    {
+      "bank": "HSBC",
+      "last4": "4226",
+      "card_name": "Platinum",
+      "active": 1
+    },
+    {
+      "bank": "ICICI",
+      "last4": "2894",
+      "card_name": "Sapphiro Amex",
+      "active": 1
+    },
+    {
+      "bank": "Axis",
+      "last4": "4937",
+      "card_name": "Airtel",
+      "active": 1
+    },
+    {
+      "bank": "HDFC",
+      "last4": "9761",
+      "card_name": "HDFC Debit (Housing)",
+      "active": 0
+    },
+    {
+      "bank": "HDFC",
+      "last4": "9050",
+      "card_name": "HDFC Debit (ATM)",
+      "active": 0
+    }
+  ]
+}

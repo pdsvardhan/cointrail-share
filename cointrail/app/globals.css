@@ -1,0 +1,258 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ─── Light Theme ──────────────────────────────────────────────────────── */
+:root {
+  --background: #f8f9fc;
+  --background-secondary: #ffffff;
+  --foreground: #0f172a;
+  --foreground-secondary: #475569;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --card-hover: #f1f5f9;
+  --border: #e2e8f0;
+  --border-subtle: #f1f5f9;
+  --input: #f1f5f9;
+  --ring: #3b82f6;
+  --radius: 0.75rem;
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.03);
+  --shadow-card-hover: 0 4px 16px rgba(0, 0, 0, 0.08), 0 8px 32px rgba(0, 0, 0, 0.04);
+  --accent-emerald: #10b981;
+  --accent-blue: #1d4ed8;
+  --accent-amber: #f59e0b;
+  --accent-rose: #ef4444;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(0, 0, 0, 0.06);
+  --summary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --text-muted: #64748b;
+  --stat-bg: rgba(0, 0, 0, 0.02);
+
+  /* Chart colors */
+  --chart-axis: #6b7280;
+  --chart-grid: #e2e8f0;
+  --chart-tooltip-bg: #ffffff;
+  --chart-tooltip-border: #e2e8f0;
+  --chart-tooltip-label: #64748b;
+  --chart-legend: #64748b;
+}
+
+/* ─── Dark Theme ───────────────────────────────────────────────────────── */
+.dark {
+  --background: #06060b;
+  --background-secondary: #0c0c14;
+  --foreground: #f1f5f9;
+  --foreground-secondary: #94a3b8;
+  --card: #0e0e18;
+  --card-foreground: #f1f5f9;
+  --card-hover: #14141f;
+  --border: #1c1c2e;
+  --border-subtle: #141422;
+  --input: #14141f;
+  --ring: #3b82f6;
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.2);
+  --shadow-card-hover: 0 8px 32px rgba(0, 0, 0, 0.4), 0 16px 48px rgba(0, 0, 0, 0.2);
+  --accent-emerald: #34d399;
+  --accent-blue: #60a5fa;
+  --accent-amber: #fbbf24;
+  --accent-rose: #f87171;
+  --glass-bg: rgba(14, 14, 24, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.04);
+  --summary-gradient: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+  --text-muted: #7e8fa6;
+  --stat-bg: rgba(255, 255, 255, 0.02);
+
+  /* Chart colors */
+  --chart-axis: #6b7280;
+  --chart-grid: #374151;
+  --chart-tooltip-bg: #12121a;
+  --chart-tooltip-border: #374151;
+  --chart-tooltip-label: #9ca3af;
+  --chart-legend: #9ca3af;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-outfit), system-ui, sans-serif;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-outfit), system-ui, sans-serif;
+  font-weight: 700;
+}
+
+code,
+.font-mono {
+  font-family: var(--font-jetbrains), "JetBrains Mono", monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ─── Scrollbar ────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--foreground-secondary);
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) var(--background);
+}
+
+/* ─── Animations ───────────────────────────────────────────────────────── */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.3s ease-out forwards;
+  opacity: 0;
+}
+
+/* ─── 3D Card Preserve ─────────────────────────────────────────────────── */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+/* ─── Glass Effects ────────────────────────────────────────────────────── */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+}
+
+/* ─── Card Hover Glare ─────────────────────────────────────────────────── */
+.card-glare {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.group:hover .card-glare {
+  opacity: 1;
+}
+
+/* ─── Theme Toggle ─────────────────────────────────────────────────────── */
+.theme-toggle {
+  position: relative;
+  width: 52px;
+  height: 28px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  padding: 0 3px;
+}
+
+.theme-toggle-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 11px;
+  background: var(--foreground);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dark .theme-toggle-thumb {
+  transform: translateX(24px);
+}
+
+/* Stagger delays */
+.stagger-1 {
+  animation-delay: 0.05s;
+}
+.stagger-2 {
+  animation-delay: 0.1s;
+}
+.stagger-3 {
+  animation-delay: 0.15s;
+}
+.stagger-4 {
+  animation-delay: 0.2s;
+}
+.stagger-5 {
+  animation-delay: 0.25s;
+}

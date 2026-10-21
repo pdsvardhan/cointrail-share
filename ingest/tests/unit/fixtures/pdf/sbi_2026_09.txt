@@ -1,0 +1,54 @@
+=== PAGE 1 ===
+GSTIN of SBI Card : 00AAAAA0000A0Z0 Stmt/Debit Note/Credit Note/Tax Invoice (ORIGINAL FOR RECIPIENT)
+TEST CARDHOLDER Credit Card Number
+XXXX XXXX XXXX XX44
+*Total Amount Due ( ` )
+46,088.00
+incl. EMI
+PLACE OF SUPPLY : TEST
+**Minimum Amount Due ( ` )
+STMT No. : A00000000000
+CKYC No. : 00000000000000 5,598.00
+Pay Now
+Credit Limit( ` ) (including cash) Cash Limit ( ` )(as part of credit limit) Statement Date
+3,00,000.00 1,00,000.00 19 Sep 2026
+Available Credit Limit ( ` ) Available Cash Limit ( ` ) Payment Due Date
+2,75,679.25 1,00,000.00 09 Oct 2026
+ACCOUNT SUMMARY
+Additions
+Payments,
+Previous Balance Reversals & other Purchases & Other Fee, Taxes & Total Outstanding
+( ` ) Credits ( ` ) Debits ( ` ) Interest Charges( ` ) ( ` )
+51,611.70 33,182.84 22,969.95 833.94 42,232.75
+Date Transaction Details Amount ( ` )
+for Statement Period: 20 Aug 26 to 19 Sep 26
+19 Aug 26 CARD CASHBACK CREDIT 752.00 C
+04 Sep 26 PAYMENT RECEIVED 000DP000000000000AbCdEf 28,975.00 C
+19 Sep 26 FP EMI 02/06(EXCL TAX 56.03) 4,715.88 M
+19 Sep 26 INTEREST ON EMI 311.26 D
+FORGN CURR MARKUP DB (EXCL TAX 71.18) 395.47 D
+IGST DB @ 18.00% 127.21 D
+TRANSACTIONS FOR TEST CARDHOLDER
+20 Aug 26 BLINKIT GURGAON IN 757.00 D
+20 Aug 26 BLINKIT GURGAON IN 757.00 D
+ANTHROPIC* CLAUDE SUB ANTHROPIC.COM CA 118.00 USD (Pay in
+24 Aug 26 11,299.11 D
+EMIs)
+25 Aug 26 URBANCLAP TECHNOLOGIES GURGAON IN (Pay in EMIs) 2,698.00 D
+05 Sep 26 ADOBE SYSTEMS GURUGRAM IN 1.00 C
+Transactions highlighted in grey color, if any, do not form part of Purchases & Other Debits; #Transactions fully/partially converted
+C=Credit ; D=Debit; EN=Encash; FP=Flexipay; EMD=Easy Money Draft; BT=Balance Transfer; M=Monthly Installments; TAD=Total Amount Due; T=Temporary Credit.
+Important Messages
+W.e.f. 1st May 2026, Late Payment Charges (LPC) will be revised to Rs.100 for Outstanding Amount Due greater than Rs.100 up to Rs.500.
+=== PAGE 2 ===
+Transaction Details
+Date Amount ( ` )
+for Statement Period: 20 Aug 26 to 19 Sep 26
+06 Sep 26 Swiggy BENGALURU IN 744.00 D
+08 Sep 26 PAYMENT DISHONOUR FEE 500.00 D
+08 Sep 26 DIRECT DEBIT PAYMENT(ACH) 3,454.84 C
+08 Sep 26 INSUFFICIENT FUNDS 3,454.84 D
+19 Sep 26 Travelgo.com HONG KONG HK (Pay in EMIs) 2,760.00 D
+=== PAGE 3 ===
+SAVINGS AND BENEFITS SECTION
+Card Cashback ( ` )# 1427 8554 12208

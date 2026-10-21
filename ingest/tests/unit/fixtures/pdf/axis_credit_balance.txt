@@ -1,0 +1,16 @@
+=== PAGE 1 ===
+Airtel Axis Bank Mastercard Credit Card Statement
+TEST CARDHOLDER
+PAYMENT SUMMARY
+Total Payment Due Minimum Payment Due Statement Period Payment Due Date Statement Generation Date
+199.00 Cr 0.00 Cr 14/11/2025 - 12/12/2025 01/01/2026 12/12/2025
+Credit Card Number Credit Limit Available Credit Limit Available Cash Limit
+539494******6666 100,000.00 100,199.00 30,000.00 Auto-Debit facility on 00000000000
+Previous Balance - Payments - Credits + Purchase + Cash Advance + Other Debit&Charges =Total Payment Due Making only the minimum payment every
+799.00 Dr 799.00 199.00 0.00 0.00 0.00 199.00 Cr over years with consequent interest payment
+Account Summary
+DATE TRANSACTION DETAILS MERCHANT CATEGORY AMOUNT (Rs.)
+Card No: 539494******6666 Name TEST CARDHOLDER
+20/11/2025 BBPS PAYMENT RECEIVED - DP000000000000ABCDEF 799.00 Cr
+25/11/2025 AIRTEL PAYMENTS BANK L,GURGAON UTILITIES 199.00 Cr
+**** End of Statement ****

@@ -1,0 +1,7 @@
+{
+  "cards": [
+    {"bank": "HDFC",  "last4": "1111", "card_name": "Demo Rewards",  "network": "Visa",       "statement_day": 5,  "due_day": 25, "active": 1},
+    {"bank": "ICICI", "last4": "2222", "card_name": "Demo Travel",   "network": "Mastercard", "statement_day": 12, "due_day": 1,  "active": 1},
+    {"bank": "SBI",   "last4": "3333", "card_name": "Demo Cashback", "network": "Visa",       "statement_day": 20, "due_day": 9,  "active": 1}
+  ]
+}

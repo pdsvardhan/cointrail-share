@@ -1,0 +1,22 @@
+node_modules
+.next
+.git
+.gradle-cache
+.gradle
+android
+mobile
+.vscode
+.idea
+*.log
+# iter-18: never bake env files into the image. `next build` with output=standalone copies
+# .env / .env.production into .next/standalone, which the runner stage ships as /app/.env
+# (the 2026-10-19 audit found INGEST_API_KEY there). Runtime config comes from
+# docker-compose.yml env_file instead.
+.env
+.env.*
+__pycache__
+**/__pycache__
+.pytest_cache
+# Local SQLite (manual entries) lives on the /data volume, not in the image.
+data
+*.db
